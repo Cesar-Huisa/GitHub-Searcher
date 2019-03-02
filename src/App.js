@@ -1,28 +1,46 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import './index.css';
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+  uri: "https://api.github.com/graphql",
+  headers: {
+    authorization: `Bearer ${
+      process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
+    }`,
+  },
+  cache,
+});
+
+const GET_CURRENT_USER = gql`
+  {
+    user {
+      login
+      name
+    }
   }
-}
+`;
+
+const Profile = () => (
+  <Query query={GET_CURRENT_USER}>
+    {() => <div>My Profile</div>}
+  </Query>
+);
+
+const App = () => (
+  <ApolloProvider client={client}>
+    <div>
+      <Profile />
+    </div>
+  </ApolloProvider>
+);
 
 export default App;
