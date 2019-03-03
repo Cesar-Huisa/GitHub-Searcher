@@ -12,12 +12,13 @@ require('dotenv').load();
 
 const GITHUB_BASE_URL = 'https://api.github.com/graphql';
 const httpLink = new HttpLink({
-    uri: GITHUB_BASE_URL,
+    uri: GITHUB_BASE_URL, 
     headers: {
-      authorization: `Bearer ${
-        process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
+        Authorization: `bearer ${
+            process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
         }`
     },
+    
     });
 const cache = new InMemoryCache();
 
@@ -30,7 +31,7 @@ const client = new ApolloClient({
 var a = document.getElementById('tfnewsearch');
 a.addEventListener('submit',function(e) {
     e.preventDefault();
-    var b = document.getElementById('tftextinput').value.search;
+    var b = document.getElementById('tftextinput').value;
     ReactDOM.render(<Search name={b}/>, document.getElementById('tftextinput'));
 });
 
