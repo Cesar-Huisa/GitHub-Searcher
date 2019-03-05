@@ -12,15 +12,18 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <title>github Searcher</title>
+
+    <div class="topnav">
+        <h1>Github Users</h1>
+        <form id="tfnewsearch">
+            <input type="text" placeholder="Search GitHub Users" class="tftextinput" id="tftextinput" name="search" size="40">
+            <button type="submit" id="tftextinput" height="26" widht="26"><img src="search.png" height="25" width="25"/></button>
+        </form>
+    </div>
   </head>
   <body>
-    <h1>Github Users</h1>
     <div>
-      <form id="tfnewsearch">
-          <input type="text" placeholder="Buscar usuarios" class="tftextinput" id="tftextinput" name="search" size="40">
-          <input type="submit" id="tftextinput" value="Buscar">
-          <button type="submit" height="26" widht="26"><img src="search.png" height="25" width="25"/></button>
-      </form>
+      
     </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
