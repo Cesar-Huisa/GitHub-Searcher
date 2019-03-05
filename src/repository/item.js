@@ -8,14 +8,11 @@ const RepositoryItem = ({
   primaryLanguage,
   owner,
   stargazers,
-  watchers,
-  viewerSubscription,
-  viewerHasStarred,
 }) => (
   <div>
     <div className="RepositoryItem-title">
       <h2>
-        {name}
+        <url href={url}>{name}</url>
       </h2>
 
       <div className="RepositoryItem-title-action">
