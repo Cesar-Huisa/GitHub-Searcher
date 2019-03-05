@@ -6,7 +6,7 @@ import Profile from './profile';
 
 
 const App = () => (
-  <Search username={"cesar"} />
+  <Search username={"kevin"} />
 );
 
 export default App;
