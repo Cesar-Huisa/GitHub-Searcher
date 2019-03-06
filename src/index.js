@@ -46,11 +46,6 @@ const client = new ApolloClient({
   cache,
 });
 
-const client = new ApolloClient({
-  link,
-  cache,
-});
-
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
