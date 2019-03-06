@@ -1,54 +1,57 @@
 import './App.css';
 import React from "react";
 import Search from './Search';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import router from "react-router";
 import autoBind from 'react-autobind';
 import SearchBar from "react-search-bar";
+import User from './user/user';
+import Profile from './profile';
+import RepositoryList from './repository/repositorylist';
+import Getlist from './repository';
 
 //<Search username={search} />
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: 'coconut'};
+  state = {
+    search: '',
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleClear() {
-    this.setState({
-      suggestions: []
-    });
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('Searching for: ' + this.state.value);
-    event.preventDefault();
-  }
-
-  suggestionRenderer(suggestion, searchTerm) {
-    return (
-      <span>
-        <span>{searchTerm}</span>
-        <strong>{suggestion.substr(searchTerm.length)}</strong>
-      </span>
-    );
-  }
+  onOrganizationSearch = value => {
+    this.setState({ search: value });
+  };
 
   render() {
+    const { userName } = this.state;
+
     return (
-    <form onSubmit={this.handleSearch}>
-        <input type="text" value={this.state.value} onChange={this.handleChange}>
-            <Search username={this.state.value} />
-          </input>
-        <input type="submit" value="Submit" />
-    </form>
-    )
+      <Router>
+        <div className="App">
+          <SearchBar />
+          <div className="App-main">
+            <Route
+              exact
+              path={'./'}
+              component={() => (
+                <div className="App-content_large-header">
+                  <Search username={userName} />
+                </div>
+              )}
+            />
+            <Route
+              exact
+              path={'./repository'}
+              component={() => (
+                <div className="App-content_small-header">
+                  <Getlist username={userName} />
+                </div>
+              )}
+            />
+          </div>
+        </div>
+      </Router>
+    );
   }
 }
 
