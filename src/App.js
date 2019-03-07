@@ -20,37 +20,35 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    return (
-      <Route
-        exact
-        path={'./'}
-        component={() => (
-          <div className="App-content_large-header">
-            <Search username={this.state.value} />
-          </div>
-        )}
-      />
-    );
+    this.setState({value: event.target.value});
   }
 
   render() {
-    const { userName } = this.state;
+    const { userName } = this.state.value;
 
     return (
       <Router>
         <div className="App">
           <form onSubmit={this.handleSubmit}>
             <label>
-              Name:
               <input type="text" value={this.state.value} onChange={this.handleChange} />
             </label>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Buscar" />
           </form>
           <div className="App-main">
-            
+            <Route
+              exact
+              path={'/'}
+              component={() => (
+                <div className="App-content_large-header">
+                  <Search username={this.state.value} />
+                </div>
+              )}
+            />
           </div>
         </div>
       </Router>
+      
     );
   }
 }
