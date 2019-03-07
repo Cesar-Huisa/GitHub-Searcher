@@ -2,21 +2,36 @@ import './App.css';
 import React from "react";
 import Search from './Search';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import SearchBar from "react-search-bar";
-import Getlist from './repository';
-import Profile from './profile';
 
 //<Search username={search} />
 
 
 class App extends React.Component {
-  state = {
-    search: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
 
-  onOrganizationSearch = value => {
-    this.setState({ search: value });
-  };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    return (
+      <Route
+        exact
+        path={'./'}
+        component={() => (
+          <div className="App-content_large-header">
+            <Search username={this.state.value} />
+          </div>
+        )}
+      />
+    );
+  }
 
   render() {
     const { userName } = this.state;
@@ -24,26 +39,15 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <SearchBar />
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Name:
+              <input type="text" value={this.state.value} onChange={this.handleChange} />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
           <div className="App-main">
-            <Route
-              exact
-              path={'./'}
-              component={() => (
-                <div className="App-content_large-header">
-                  <Search username={userName} />
-                </div>
-              )}
-            />
-            <Route
-              exact
-              path={'./repository'}
-              component={() => (
-                <div className="App-content_small-header">
-                  <Getlist username={userName} />
-                </div>
-              )}
-            />
+            
           </div>
         </div>
       </Router>
