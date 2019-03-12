@@ -14,15 +14,10 @@ const getUpdateQuery = entry => (
   return {
     ...previousResult,
     [entry]: {
-      ...previousResult[entry],
-      search: {
-        ...previousResult[entry].search,
-        ...fetchMoreResult[entry].search,
-        edges: [
-          ...previousResult[entry].search.edges,
-          ...fetchMoreResult[entry].search.edges,
-        ],
-      },
+      edges: [
+        ...previousResult[entry].edges,
+        ...fetchMoreResult[entry].edges,
+      ],
     },
   };
 };
@@ -36,12 +31,12 @@ const Userlist = ({
   fetchMore,
 }) =>(
   <Fragment>
-  {search.edges.map(({ node }) => (
-    <div key={search.id} className="User">
-      <User {...node} />
-    </div>
-  ))}
-
+    {search.edges.map(({ node }) => (
+      <div key={search.id} className="User">
+        <User {...node} />
+      </div>
+    ))}
+    
     <FetchMore
       loading={loading}
       hasNextPage={search.pageInfo.hasNextPage}

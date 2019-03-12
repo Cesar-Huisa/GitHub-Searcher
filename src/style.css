@@ -3,6 +3,44 @@ head {
   
 }
 
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 34px;
+  margin: 5px 10;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 34px;
+  margin: 5px 0;
+  height: 40px;
+}
+
+h3 {
+  font-size: 12px;
+  font-weight: 600;
+  border: 20 30 40 50;
+  line-height: 34px;
+  height: 15px;
+  margin: 5px 0;
+  padding-left: 45px;
+}
+
+img {
+
+  height: 40px;
+  width: 40px;
+  border: 0;
+  position: relative;
+  top: 10pt;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
+}
+
 body {
   margin: 10;
   padding: 20;
@@ -18,10 +56,30 @@ code {
     monospace;
 }
 
-
 input {
-  font-size: 18px;
-  outline: 0;
+  width: 50%;
+  height:40px;
+  font-size: 20px;
+
+  background: url("search.svg") 8pt 8pt transparent no-repeat;
+  border: 1px solid #BFBFBF;
+  color: #BFBFBF;
+  padding: 5px 5px 5px 35pt;
+  margin-bottom: 20px;
+  background-size: 20pt 20pt;
+  border-radius: 25px;
+}
+
+button {
+  width: 40px;
+  height:40px;
+  color: rgb(160, 160, 160);
+  background: rgb(160, 160, 160);
+}
+
+.User {
+  background: rgba(235, 235, 235, 0.548);
+  
 }
 
 .field {
@@ -34,13 +92,7 @@ input {
   border-color: #ccc;
 }
 
-.input {
-  border: 0;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 10px 0 10px 10px;
-  width: 100%;
-}
+
 
 .clear-button,
 .submit-button {
@@ -48,6 +100,7 @@ input {
   background-position: center center;
   background-repeat: no-repeat;
   border: 0;
+  background-image: url(./search.svg);
   cursor: pointer;
   font-size: 0;
   outline: 0;
@@ -76,30 +129,3 @@ input {
   opacity: 1;
 }
 
-.suggestions {
-  border: 1px solid #ccc;
-  list-style: none;
-  margin: 0;
-  max-height: 240px;
-  overflow: auto;
-  padding: 0;
-  position: relative;
-  top: -1px;
-  user-select: none;
-}
-
-.suggestion {
-  cursor: pointer;
-  height: 40px;
-  letter-spacing: 0.03em;
-  line-height: 40px;
-  padding: 0 7px 0 10px;
-}
-
-.suggestion--focused {
-  background: #f5f5f5;
-}
-
-.suggestion:last-child {
-  border: none;
-}

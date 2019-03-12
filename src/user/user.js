@@ -1,4 +1,3 @@
-import './user.css';
 import React from 'react';
 import '../style.css';
 
@@ -9,18 +8,18 @@ const User = ({
   repositories,
   avatarUrl,
 }) => (
-  <div className="User details">
+  <div className="User">
     
-    <h1>
-    <img src={avatarUrl} ></img> {name},{location}
-    </h1>
+    <h2>
+    <img src={avatarUrl} ></img> {name},  {location}
+    </h2>
 
     <div className="User login">
-    <h2>{login}</h2>
+    <h3>{login}</h3>
     </div>
 
     <div className="number of repos">
-    <h2>Repositories: {repositories.totalCount}</h2>
+    <h3>Repositories: {repositories.totalCount}</h3>
     </div>
   </div>
 );

@@ -1,4 +1,4 @@
-import './App.css';
+import './style.css';
 import React from "react";
 import Search from './Search';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -21,19 +21,18 @@ class App extends React.Component {
 
   handleSubmit(event) {
     this.setState({value: event.target.value});
+    event.preventDefault();
   }
 
   render() {
-    const { userName } = this.state.value;
+
 
     return (
       <Router>
         <div className="App">
+        <h1>Github Users</h1>
           <form onSubmit={this.handleSubmit}>
-            <label>
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Buscar" />
+              <input type="text" value={this.state.value} onChange={this.handleChange}/>            
           </form>
           <div className="App-main">
             <Route
