@@ -11,6 +11,10 @@ From your command prompt:
 * npm start
 * visit `http://localhost:3000`
 
+### Issues
+* When you are searching for a user do not press enter because this will cause an error, I am looking for a solution
+* When you click on a user due to a modification in the structure of the app it shows an error, This is being fixed
+
 ### `npm start`
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
