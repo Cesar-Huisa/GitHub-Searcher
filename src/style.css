@@ -4,10 +4,11 @@ head {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 600;
   line-height: 34px;
   margin: 5px 10;
+  margin-left: 20px;
 }
 
 h2 {
@@ -15,23 +16,28 @@ h2 {
   font-weight: 600;
   line-height: 34px;
   margin: 5px 0;
-  height: 40px;
+  height: 30px;
 }
 
 h3 {
   font-size: 12px;
   font-weight: 600;
-  border: 20 30 40 50;
   line-height: 34px;
-  height: 15px;
+  height: 10px;
   margin: 5px 0;
-  padding-left: 45px;
+  padding-left: 55px;
+}
+
+.Userlog {
+  height: 50px;
+  padding-top: 3px;
+  padding-left: 5px;
 }
 
 img {
 
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   border: 0;
   position: relative;
   top: 10pt;
@@ -39,6 +45,7 @@ img {
   background-position: 50%;
   border-radius: 50%;
   background-size: 100% auto;
+  padding-right: 5px;
 }
 
 body {
@@ -58,15 +65,15 @@ code {
 
 input {
   width: 50%;
-  height:40px;
+  height:36px;
   font-size: 20px;
-
-  background: url("search.svg") 8pt 8pt transparent no-repeat;
+  margin-left: 17px;
+  background: url("search.svg") 10pt 10pt transparent no-repeat;
   border: 1px solid #BFBFBF;
-  color: #BFBFBF;
-  padding: 5px 5px 5px 35pt;
+  color: rgb(95, 95, 95);
+  padding: 5px 5px 5px 30pt;
   margin-bottom: 20px;
-  background-size: 20pt 20pt;
+  background-size: 15pt 15pt;
   border-radius: 25px;
 }
 
@@ -79,6 +86,8 @@ button {
 
 .User {
   background: rgba(235, 235, 235, 0.548);
+  margin-left: 15px;
+  height: 90px;
   
 }
 
